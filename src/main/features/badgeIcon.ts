@@ -38,7 +38,7 @@ export default (window: BrowserWindow, trayIcon: Tray) => {
 
     if (store.get('app.showOnMessage')) {
       if (count > 0) {
-        window.show();
+        window.showInactive();
       }
     }
 

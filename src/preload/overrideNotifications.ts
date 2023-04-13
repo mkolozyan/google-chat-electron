@@ -1,5 +1,5 @@
 // https://github.com/jiahaog/nativefier/blob/cf11a71a7c6efd366266fcf39ac6fc49783dd8c7/app/src/preload.ts#L23
-import {ipcRenderer} from 'electron';
+import { ipcRenderer } from 'electron';
 
 // This feature requires contextIsolation to be disabled on BrowserWindow
 // When contextIsolation is enabled, we can not override any global (window.X) API
@@ -15,6 +15,12 @@ const NativeNotification = window.Notification;
 // Note: this must be the good old ES5 function,
 // Dont convert this into an ES6 arrow function
 const newNotify = function (title: string, options?: NotificationOptions) {
+  if (options) {
+    console.log("Notification setting requireInteraction !");
+    console.log(options);
+    options.silent = false;
+    options.requireInteraction = true;
+  }
   const instance: Notification = new NativeNotification(title, options);
   instance.addEventListener('click', clickCallback);
   return instance;

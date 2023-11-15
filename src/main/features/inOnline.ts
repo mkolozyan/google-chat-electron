@@ -1,4 +1,3 @@
-import isOnline from 'is-online';
 import {BrowserWindow, ipcMain, Notification, app, nativeImage, IpcMainEvent} from 'electron';
 import path from 'path';
 
@@ -12,10 +11,12 @@ export default (window: BrowserWindow) => {
 }
 
 const checkIfOnline = async (timeout = 3000) => {
-  const isOnline = (await import('is-online')).default;
-  return await isOnline({
-    timeout
-  });
+  // TODO: need another solution...
+  return true;
+  // const isOnline = (await import('is-online')).default;
+  // return await isOnline({
+  //   timeout
+  // });
 }
 
 const checkForInternet = async (window: BrowserWindow) => {

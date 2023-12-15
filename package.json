@@ -31,7 +31,7 @@
   "devDependencies": {
     "@types/auto-launch": "^5.0.5",
     "@types/throttle-debounce": "^5.0.2",
-    "electron": "^27.0.0",
+    "electron": "^28.0.0",
     "electron-packager": "^17.1.2",
     "rimraf": "^4.4.1",
     "typescript": "^4.9.5"

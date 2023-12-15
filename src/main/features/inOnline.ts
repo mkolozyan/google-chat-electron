@@ -12,7 +12,7 @@ export default (window: BrowserWindow) => {
 
 const checkIfOnline = async (timeout = 3000) => {
   // TODO: need another solution...
-  return true;
+  return new Promise(resolve => true);
   // const isOnline = (await import('is-online')).default;
   // return await isOnline({
   //   timeout
@@ -22,6 +22,7 @@ const checkIfOnline = async (timeout = 3000) => {
 const checkForInternet = async (window: BrowserWindow) => {
   const canChat = await checkIfOnline();
 
+  console.log(`checkForInternet() canChat : ${canChat}`)
   if (!canChat) {
     const offlinePagePath = path.join(app.getAppPath(), 'src/offline/index.html');
     await window.loadURL(`file://${offlinePagePath}`);

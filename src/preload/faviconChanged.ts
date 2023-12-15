@@ -12,6 +12,10 @@ let previousHref: null | string = '';
 const emitFaviconChanged = (favicon: HTMLLinkElement) => {
   const href = favicon?.href || '';
 
+  console.log('emitFaviconChanged', href, previousHref);
+  console.log('href=', href);
+  console.log('previousHref=', previousHref);
+
   if (previousHref === href) {
     return;
   }
